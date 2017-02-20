@@ -11,6 +11,7 @@
 
             <!-- linc_nanovg glue code -->
         <compilerflag value='-DNANOVG_GL3_IMPLEMENTATION'/>
+        <compilerflag value='-DNVG_HAS_STB_IMAGE_IMPLEMENTATION' if="linc_stb"/>
         <file name='${LINC_NANOVG_PATH}linc/linc_nanovg.cpp' />
 
             <!-- nanovg library code -->
