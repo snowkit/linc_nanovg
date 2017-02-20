@@ -1,0 +1,30 @@
+<xml>
+	
+	<set name="NATIVE_TOOLKIT_PATH" value="${LINC_NANOVG_PATH}lib/" />
+
+    <files id='haxe'>
+
+    	<compilerflag value='-I${LINC_NANOVG_PATH}/lib/nanovg/'/>
+        <compilerflag value='-I${LINC_NANOVG_PATH}/linc/'/>
+
+        <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/nanovg/src/"/>
+
+            <!-- linc_nanovg glue code -->
+        <compilerflag value='-DNANOVG_GL3_IMPLEMENTATION'/>
+        <file name='${LINC_NANOVG_PATH}linc/linc_nanovg.cpp' />
+
+            <!-- nanovg library code -->
+        <file name='${LINC_NANOVG_PATH}lib/nanovg/src/nanovg.c' />
+
+    </files>
+
+    <target id="haxe">
+
+        <section if="windows">
+            <lib name="winmm.lib" />
+            <lib name="ws2_32.lib"  />
+        </section>
+
+    </target>
+
+</xml>
