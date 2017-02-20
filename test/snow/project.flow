@@ -1,0 +1,36 @@
+{
+
+  snow : {
+    config: {
+      config_path: '',
+      log: 1
+    }
+  },
+
+  project : {
+    name : 'linc_nanovg_test',
+    version : '1.0.0',
+    author : 'snowkit',
+
+    app : {
+      name : 'linc_nanovg_test',
+      package : 'org.snowkit.linc_nanovg',
+    },
+
+    //HAH
+
+    build : {
+      flags:['-dce full'],
+      dependencies : {
+        snow : '*',
+        "linc_nanovg": "*"
+      }
+    },
+
+    files : {
+      assets : 'assets/'
+    }
+
+  }
+
+}
