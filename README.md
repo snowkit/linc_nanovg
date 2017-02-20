@@ -2,10 +2,15 @@
 Haxe/hxcpp @:native bindings for [nanovg](https://github.com/memononen/nanovg).
 This library started as [hx-nanovg](https://github.com/dazKind/hx-nanovg) by dazKind.
 
-This is a [linc](http://snowkit.github.io/linc/) library.
+### via nanovg README
+
+NanoVG is small antialiased vector graphics rendering library for OpenGL. It has lean API modeled after HTML5 canvas API. It is aimed to be a practical and fun toolset for building scalable user interfaces and visualizations.
+
+![](screenshot.png)
 
 ---
 
+This is a [linc](http://snowkit.github.io/linc/) library.
 This library works with the Haxe cpp target only.
 
 ---
