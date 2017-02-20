@@ -47,6 +47,14 @@ class NvgAlign {
     inline public static var ALIGN_BASELINE:Int  = 1<<6;
 }
 
+class NvgImageFlags {
+    inline public static var IMAGE_GENERATE_MIPMAPS:Int = 1<<0;
+    inline public static var IMAGE_REPEATX:Int          = 1<<1;
+    inline public static var IMAGE_REPEATY:Int          = 1<<2;
+    inline public static var IMAGE_FLIPY:Int            = 1<<3;
+    inline public static var IMAGE_PREMULTIPLIED:Int    = 1<<4;
+}
+
 @:include("linc_nanovg.h")
 @:structAccess
 @:unreflective
