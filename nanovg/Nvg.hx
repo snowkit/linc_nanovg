@@ -3,6 +3,7 @@ package nanovg;
 import cpp.ConstPointer;
 import cpp.Pointer;
 import cpp.UInt8;
+import cpp.Float32;
 
 @:include("linc_nanovg.h")
 @:native("NVGcontext")
@@ -224,31 +225,31 @@ extern class Nvg {
     public static function transformIdentity(_dst:Float):Void;
 
     @:native("::nvgTransformTranslate")
-    public static function transformTranslate(_dst:Pointer<Float>, _tx:Float, _ty:Float):Void;
+    public static function transformTranslate(_dst:Pointer<Float32>, _tx:Float, _ty:Float):Void;
 
     @:native("::nvgTransformScale")
-    public static function transformScale(_dst:Pointer<Float>, _sx:Float, _sy:Float):Void;
+    public static function transformScale(_dst:Pointer<Float32>, _sx:Float, _sy:Float):Void;
 
     @:native("::nvgTransformRotate")
-    public static function transformRotate(_dst:Pointer<Float>, _angle:Float):Void;
+    public static function transformRotate(_dst:Pointer<Float32>, _angle:Float):Void;
 
     @:native("::nvgTransformSkewX")
-    public static function transformSkewX(_dst:Pointer<Float>, _angle:Float):Void;
+    public static function transformSkewX(_dst:Pointer<Float32>, _angle:Float):Void;
 
     @:native("::nvgTransformSkewY")
-    public static function transformSkewY(_dst:Pointer<Float>, _angle:Float):Void;
+    public static function transformSkewY(_dst:Pointer<Float32>, _angle:Float):Void;
 
     @:native("::nvgTransformMultiply")
-    public static function transformMultiply(_dst:Pointer<Float>, _src:ConstPointer<Float>):Void;
+    public static function transformMultiply(_dst:Pointer<Float32>, _src:ConstPointer<Float32>):Void;
 
     @:native("::nvgTransformPremultiply")
-    public static function transformPremultiply(_dst:Pointer<Float>, _src:ConstPointer<Float>):Void;
+    public static function transformPremultiply(_dst:Pointer<Float32>, _src:ConstPointer<Float32>):Void;
 
     @:native("::nvgTransformInverse")
-    public static function transformInverse(_dst:Pointer<Float>, _src:ConstPointer<Float>):Void;
+    public static function transformInverse(_dst:Pointer<Float32>, _src:ConstPointer<Float32>):Void;
 
     @:native("::nvgTransformPoint")
-    public static function transformPoint(_dstx:Pointer<Float>, _dsty:Pointer<Float>, _xform:ConstPointer<Float>, _srcx:Float, _srcy:Float):Void;
+    public static function transformPoint(_dstx:Pointer<Float32>, _dsty:Pointer<Float32>, _xform:ConstPointer<Float32>, _srcx:Float, _srcy:Float):Void;
 
 
     @:native("::nvgDegToRad")
@@ -380,16 +381,16 @@ extern class Nvg {
     public static function textBox(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String):Void;
 
     @:native("::nvgTextBounds")
-    public static function textBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String, _bounds:Pointer<Float>):Float;
+    public static function textBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String, _bounds:Pointer<Float32>):Float;
 
     @:native("::nvgTextBoxBounds")
-    public static function textBoxBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String, _bounds:Pointer<Float>):Void;
+    public static function textBoxBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String, _bounds:Pointer<Float32>):Void;
 
     @:native("::nvgTextGlyphPositions")
     public static function textGlyphPositions(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String, _positions:Pointer<NvgGlyphPosition>, _maxPositions:Int):Int;
 
     @:native("::nvgTextMetrics")
-    public static function textMetrics(_ctx:Pointer<NvgContext>, _ascender:Pointer<Float>, _descender:Pointer<Float>, _lineh:Pointer<Float>):Void;
+    public static function textMetrics(_ctx:Pointer<NvgContext>, _ascender:Pointer<Float32>, _descender:Pointer<Float32>, _lineh:Pointer<Float32>):Void;
 
     @:native("::nvgTextBreakLines")
     public static function textBreakLines(_ctx:Pointer<NvgContext>, _string:String, _end:String, _breakRowWidth:Float, _rows:Pointer<NvgTextRow>, _maxRows:Int):Int;
