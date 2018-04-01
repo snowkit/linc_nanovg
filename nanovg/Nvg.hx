@@ -9,6 +9,10 @@ import cpp.Float32;
 import stb.Image;
 #end
 
+#if (linc_opengl || linc_glew)
+import glew.GLEW;
+#end
+
 @:include("linc_nanovg.h")
 @:native("NVGcontext")
 extern class NvgContext {}
