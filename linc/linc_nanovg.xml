@@ -19,6 +19,12 @@
 
     </files>
 
+    <files id="__main__">
+    	<compilerflag value='-I${LINC_NANOVG_PATH}/lib/nanovg/'/>
+        <compilerflag value='-I${LINC_NANOVG_PATH}/linc/'/>
+        <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/nanovg/src/"/>
+    </files>
+
     <target id="haxe">
 
         <section if="windows">

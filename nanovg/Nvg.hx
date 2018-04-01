@@ -5,6 +5,14 @@ import cpp.Pointer;
 import cpp.UInt8;
 import cpp.Float32;
 
+#if linc_stb
+import stb.Image;
+#end
+
+#if (linc_opengl || linc_glew)
+import glew.GLEW;
+#end
+
 @:include("linc_nanovg.h")
 @:native("NVGcontext")
 extern class NvgContext {}
