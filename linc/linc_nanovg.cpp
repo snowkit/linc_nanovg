@@ -1,6 +1,4 @@
-#ifndef HXCPP_H
 #include <hxcpp.h>
-#endif
 
 #include <GL/glew.h>
 
