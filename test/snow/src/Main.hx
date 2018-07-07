@@ -21,8 +21,8 @@ class Main extends snow.App {
 
         config.window.title = 'linc nanovg example';
 
-            //currently required for GLES3.x in linc_nanvog, will add more flags
-        config.render.opengl.profile = gles;
+            //currently required for GL3.x in linc_nanvog, will add more flags
+        config.render.opengl.profile = core;
 
             //required for nanovg
         config.render.stencil = 8;

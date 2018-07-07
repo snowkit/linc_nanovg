@@ -12,7 +12,7 @@
             <!-- linc_nanovg glue code -->
 
         <compilerflag value='-DNANOVG_GL2_IMPLEMENTATION' if="opengl_2"/>   
-        <compilerflag value='-DNANOVG_GL2_IMPLEMENTATION' if="opengl_3"/>           
+        <compilerflag value='-DNANOVG_GL3_IMPLEMENTATION' if="opengl_3"/>           
         <compilerflag value='-DNANOVG_GLES2_IMPLEMENTATION' if="opengl_es2"/> 
         <compilerflag value='-DNANOVG_GLES3_IMPLEMENTATION' if="opengl_es3"/>
         <compilerflag value='-DNVG_HAS_STB_IMAGE_IMPLEMENTATION' if="linc_stb"/>
