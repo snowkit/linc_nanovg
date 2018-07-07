@@ -20,7 +20,7 @@
     //HAH
 
     build : {
-      flags:['-dce full'],
+      //flags:['-dce full'],
       dependencies : {
         snow : '*',
         "linc_nanovg": "*"

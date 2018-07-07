@@ -1,6 +1,9 @@
 import snow.api.Debug.*;
 import snow.types.Types;
 import snow.modules.opengl.GL;
+import haxe.io.UInt8Array;
+// import snow.systems.assets.Asset;
+// import snow.systems.assets.AssetBytes;
 
 import nanovg.Nvg;
 using cpp.NativeString;
@@ -38,7 +41,15 @@ class Main extends snow.App {
         trace('OpenGL version: ${GL.versionString()}');
 
         vg = Nvg.createGL(NvgMode.ANTIALIAS|NvgMode.STENCIL_STROKES);
-        font = Nvg.createFont(vg, "arial", "assets/DroidSans.ttf");
+
+
+        app.assets.bytes("assets/DroidSans.ttf").then(function(b:AssetBytes){
+                
+                font = Nvg.createFontMem(vg, "arial", cpp.Pointer.ofArray(b.bytes.buffer), b.bytes.length, 1);
+        });
+
+        
+        
         linearGradient = Nvg.linearGradient(vg, 0, 0, 500, 500, Nvg.rgba(255,192,0,255), Nvg.rgba(0,0,0,255));
 
     } //ready
