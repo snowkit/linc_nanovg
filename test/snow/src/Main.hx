@@ -38,7 +38,7 @@ class Main extends snow.App {
 
         trace('OpenGL version: ${GL.versionString()}');
 
-        vg = Nvg.createGL(NvgMode.ANTIALIAS|NvgMode.STENCIL_STROKES);
+        vg = Nvg.createGL(NvgMode.ANTIALIAS);
         font = Nvg.createFont(vg, "arial", "assets/DroidSans.ttf");
         linearGradient = Nvg.linearGradient(vg, 0, 0, 500, 500, Nvg.rgba(255,192,0,255), Nvg.rgba(0,0,0,255));
 
