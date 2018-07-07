@@ -21,8 +21,8 @@ class Main extends snow.App {
 
         config.window.title = 'linc nanovg example';
 
-            //currently required for GL3.x in linc_nanvog, will add more flags
-        config.render.opengl.profile = core;
+            //currently required for GLES3.x in linc_nanvog, will add more flags
+        config.render.opengl.profile = gles;
 
             //required for nanovg
         config.render.stencil = 8;
@@ -38,7 +38,7 @@ class Main extends snow.App {
 
         trace('OpenGL version: ${GL.versionString()}');
 
-        vg = Nvg.createGL(NvgMode.ANTIALIAS);
+        vg = Nvg.createGL(NvgMode.ANTIALIAS|NvgMode.STENCIL_STROKES);
         font = Nvg.createFont(vg, "arial", "assets/DroidSans.ttf");
         linearGradient = Nvg.linearGradient(vg, 0, 0, 500, 500, Nvg.rgba(255,192,0,255), Nvg.rgba(0,0,0,255));
 

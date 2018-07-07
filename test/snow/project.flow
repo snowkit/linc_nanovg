@@ -24,7 +24,8 @@
       dependencies : {
         snow : '*',
         "linc_nanovg": "*"
-      }
+      },
+      defines : ['opengl_es2']
     },
 
     files : {
