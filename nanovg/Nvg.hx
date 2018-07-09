@@ -271,13 +271,13 @@ extern class Nvg {
     public static function createImage(_ctx:Pointer<NvgContext>, _filename:String):Int;
 
     @:native("::nvgCreateImageMem")
-    public static function createImageMem(_ctx:Pointer<NvgContext>, _data:haxe.io.BytesData, _ndata:Int):Int;
+    public static function createImageMem(_ctx:Pointer<NvgContext>, _data:cpp.Pointer<UInt8>, _ndata:Int):Int;
 
     @:native("::nvgCreateImageRGBA")
-    public static function createImageRGBA(_ctx:Pointer<NvgContext>, _w:Int, _h:Int, _data:haxe.io.BytesData):Int;
+    public static function createImageRGBA(_ctx:Pointer<NvgContext>, _w:Int, _h:Int, _data:cpp.Pointer<UInt8>):Int;
 
     @:native("::nvgUpdateImage")
-    public static function updateImage(_ctx:Pointer<NvgContext>, _image:Int, _data:haxe.io.BytesData):Void;
+    public static function updateImage(_ctx:Pointer<NvgContext>, _image:Int, _data:cpp.Pointer<UInt8>):Void;
 
     @:native("::nvgImageSize")
     public static function imageSize(_ctx:Pointer<NvgContext>, _image:Int, _w:Pointer<Int>, _h:Pointer<Int>):Void;
@@ -356,7 +356,7 @@ extern class Nvg {
     public static function createFont(_ctx:Pointer<NvgContext>, _name:String, _filename:String):Int;
 
     @:native("::nvgCreateFontMem")
-    public static function createFontMem(_ctx:Pointer<NvgContext>, _name:String, _data:haxe.io.BytesData, _ndata:Int, _freeData:Int):Int;
+    public static function createFontMem(_ctx:Pointer<NvgContext>, _name:String, _data:cpp.Pointer<UInt8>, _ndata:Int, _freeData:Int):Int;
 
     @:native("::nvgFindFont")
     public static function findFont(_ctx:Pointer<NvgContext>, _name:String):Int;

@@ -1,8 +1,9 @@
-
 import snow.api.Debug.*;
 import snow.types.Types;
 import snow.modules.opengl.GL;
-
+import haxe.io.UInt8Array;
+// import snow.systems.assets.Asset;
+// import snow.systems.assets.AssetBytes;
 
 import nanovg.Nvg;
 using cpp.NativeString;
@@ -20,10 +21,10 @@ class Main extends snow.App {
 
     override function config( config:AppConfig ) : AppConfig {
 
-        config.window.title = 'linc nanovg example';
+        config.window.title = 'linc nanovg gles example';
 
-            //currently required for GL3.x in linc_nanvog, will add more flags
-        config.render.opengl.profile = core;
+            //currently required for GLES3.x
+        config.render.opengl.profile = gles;
 
             //required for nanovg
         config.render.stencil = 8;
@@ -39,8 +40,16 @@ class Main extends snow.App {
 
         trace('OpenGL version: ${GL.versionString()}');
 
-        vg = Nvg.createGL(NvgMode.ANTIALIAS);
-        font = Nvg.createFont(vg, "arial", "assets/DroidSans.ttf");
+        vg = Nvg.createGL(NvgMode.ANTIALIAS|NvgMode.STENCIL_STROKES);
+
+
+        app.assets.bytes("assets/DroidSans.ttf").then(function(b:AssetBytes){
+                
+                font = Nvg.createFontMem(vg, "arial", cpp.Pointer.ofArray(b.bytes.buffer), b.bytes.length, 1);
+        });
+
+        
+        
         linearGradient = Nvg.linearGradient(vg, 0, 0, 500, 500, Nvg.rgba(255,192,0,255), Nvg.rgba(0,0,0,255));
 
     } //ready

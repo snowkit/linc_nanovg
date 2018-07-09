@@ -20,12 +20,14 @@
     //HAH
 
     build : {
-      flags:['-dce full'],
+      //flags:['-dce full'],
       dependencies : {
         snow : '*',
         "linc_nanovg": "*"
       },
-      defines : ['opengl_3']
+      
+      // define opengl version
+      defines : ['opengl_es3']
     },
 
     files : {
