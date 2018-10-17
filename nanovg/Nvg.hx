@@ -388,11 +388,13 @@ extern class Nvg {
     @:native("::nvgTextBox")
     public static function textBox(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String):Void;
 
-    @:native("::nvgTextBounds")
-    public static function textBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String, _bounds:Pointer<Float32>):Float;
-
-    @:native("::nvgTextBoxBounds")
-    public static function textBoxBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String, _bounds:Pointer<Float32>):Void;
+    public static inline function textBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String):Array<Float>{
+        return untyped __cpp__('nanovg::nvgTextBoundsHelper({0},{1},{2},{3},{4})', _ctx, _x, _y, _string, _end);
+    }
+    
+    public static inline function textBoxBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String):Array<Float>{
+        return untyped __cpp__('nanovg::nvgTextBoxBoundsHelper({0},{1},{2},{3},{4},{5})', _ctx, _x, _y, _breakRowWidth, _string, _end);
+    }
 
     @:native("::nvgTextGlyphPositions")
     public static function textGlyphPositions(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String, _positions:Pointer<NvgGlyphPosition>, _maxPositions:Int):Int;
