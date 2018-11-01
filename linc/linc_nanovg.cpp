@@ -40,13 +40,13 @@ namespace nanovg {
     }
 
     Array<float> nvgTextBoundsHelper(NVGcontext* _ctx, float _x, float _y, String _string, String _end) {
-        Array<float> out = new Array_obj<float>(4, 0);
+        Array<float> out = Array_obj<float>::__new(4);
         nvgTextBounds(_ctx, _x, _y, _string.c_str(), _end.c_str(), (float*)out->getBase());
         return out;
     }
 
     Array<float> nvgTextBoxBoundsHelper(NVGcontext* _ctx, float _x, float _y, float _breakRowWidth, String _string, String _end) {
-        Array<float> out = new Array_obj<float>(4, 0);
+        Array<float> out = Array_obj<float>::__new(4);
         nvgTextBoxBounds(_ctx, _x, _y, _breakRowWidth, _string.c_str(), _end.c_str(), (float*)out->getBase());
         return out;
     }
