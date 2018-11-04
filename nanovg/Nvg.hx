@@ -356,7 +356,7 @@ extern class Nvg {
     public static function createFont(_ctx:Pointer<NvgContext>, _name:String, _filename:String):Int;
 
     @:native("::nvgCreateFontMem")
-    public static function createFontMem(_ctx:Pointer<NvgContext>, _name:String, _data:haxe.io.BytesData, _ndata:Int, _freeData:Int):Int;
+    public static function createFontMem(_ctx:Pointer<NvgContext>, _name:String, _data:cpp.Star<UInt8>, _ndata:Int, _freeData:Int):Int;
 
     @:native("::nvgFindFont")
     public static function findFont(_ctx:Pointer<NvgContext>, _name:String):Int;
