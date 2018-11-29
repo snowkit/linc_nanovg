@@ -388,12 +388,12 @@ extern class Nvg {
     @:native("::nvgTextBox")
     public static function textBox(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String):Void;
 
-    public static inline function textBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String):Array<Float>{
-        return untyped __cpp__('nanovg::nvgTextBoundsHelper({0},{1},{2},{3},{4})', _ctx, _x, _y, _string, _end);
+    public static inline function textBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _string:String, _end:String, out:Array<Float32>):Float{
+        return untyped __cpp__('nanovg::nvgTextBoundsHelper({0},{1},{2},{3},{4},{5})', _ctx, _x, _y, _string, _end, out);
     }
     
-    public static inline function textBoxBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String):Array<Float>{
-        return untyped __cpp__('nanovg::nvgTextBoxBoundsHelper({0},{1},{2},{3},{4},{5})', _ctx, _x, _y, _breakRowWidth, _string, _end);
+    public static inline function textBoxBounds(_ctx:Pointer<NvgContext>, _x:Float, _y:Float, _breakRowWidth:Float, _string:String, _end:String, out:Array<Float32>):Void{
+        untyped __cpp__('nanovg::nvgTextBoxBoundsHelper({0},{1},{2},{3},{4},{5},{6})', _ctx, _x, _y, _breakRowWidth, _string, _end, out);
     }
 
     @:native("::nvgTextGlyphPositions")
@@ -402,7 +402,17 @@ extern class Nvg {
     @:native("::nvgTextMetrics")
     public static function textMetrics(_ctx:Pointer<NvgContext>, _ascender:Pointer<Float32>, _descender:Pointer<Float32>, _lineh:Pointer<Float32>):Void;
 
-    @:native("::nvgTextBreakLines")
-    public static function textBreakLines(_ctx:Pointer<NvgContext>, _string:String, _end:String, _breakRowWidth:Float, _rows:Pointer<NvgTextRow>, _maxRows:Int):Int;
+    //@:native("::nvgTextBreakLines")
+    public static inline function textBreakLines(_ctx:Pointer<NvgContext>, _string:String, _breakRowWidth:Float):Array<
+    {
+        start:String,
+        end:String,
+        next:String,
+        width:Float,
+        minx:Float,
+        maxx:Float
+    }>{
+        return untyped __cpp__('nanovg::nvgTextBreakLinesHelper({0},{1},{2})', _ctx, _string, _breakRowWidth);
+    }
 }
 
