@@ -8,10 +8,6 @@
 namespace nanovg {
 
     NVGcontext* nvgCreateGL(int _flags) {
-        GLenum err = glewInit();
-        if (err != GLEW_OK) {
-            printf("Could not init glew.\n");
-        }
 
         NVGcontext* ctx = 
         #if NANOVG_GL2_IMPLEMENTATION
